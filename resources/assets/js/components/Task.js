@@ -1,7 +1,7 @@
 import React from 'react';
 import MomentTimer from "./Moment";
 import RemoveTask from "./RemoveTask";
-import Cheater from "./Cheater";
+import Criminal from "./Criminal";
 import Increment from "./Increment";
 import CodeRedirect from "./CodeRedirect";
 import CountNumber from "./CountNumber";
@@ -163,7 +163,7 @@ class Task extends React.Component {
                                 <CountNumber count={result.count}/>
                             </li>
                             <li>
-                                <Cheater
+                                <Criminal
                                     handleCheater={this.handleCheater}
                                     id={result.id}/>
 
