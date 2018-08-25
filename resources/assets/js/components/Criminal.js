@@ -2,19 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types';
 
 
-const Criminal = ({handleCheater, id}) => (
+const Cheater = ({handleCheater, id}) => (
     <form onSubmit={event => {
         event.preventDefault();
         handleCheater(id)
     }}>
-        <button>I'm a Criminal</button>
+        <button>Cheater</button>
     </form>
 );
 
 
-Criminal.propTypes = {
+Cheater.propTypes = {
     handleCheater: PropTypes.func,
     id: PropTypes.number,
 };
 
-export default Criminal;
+export default Cheater;
