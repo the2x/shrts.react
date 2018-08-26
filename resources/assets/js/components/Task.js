@@ -139,7 +139,6 @@ class Task extends React.Component {
     render() {
         return (
             <div className="task_wrapper">
-
                 <CreateTask
                     handleSubmit={this.handleSubmit}
                     createTask={this.createTask}/>

@@ -1,14 +1,16 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import PropTypes from 'prop-types';
 
 
 const Cheater = ({handleCheater, id}) => (
-    <form onSubmit={event => {
-        event.preventDefault();
-        handleCheater(id)
-    }}>
-        <button>Cheater</button>
-    </form>
+    <Fragment>
+        <form onSubmit={event => {
+            event.preventDefault();
+            handleCheater(id)
+        }}>
+            <button>Cheater</button>
+        </form>
+    </Fragment>
 );
 
 

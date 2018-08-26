@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 
 
 const Profile = ({index, toggleClass, getProfileListInformation, active, user, id}) => (
-    <div>
+    <Fragment>
         <button key={index} onClick={() => {
             toggleClass(index);
             getProfileListInformation(index)
@@ -24,7 +24,7 @@ const Profile = ({index, toggleClass, getProfileListInformation, active, user, i
                 }
             </ul>
         </div>
-    </div>
+    </Fragment>
 );
 
 

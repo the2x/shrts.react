@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 
 
 const Increment = ({id}) => (
-    <small>{id}</small>
+    <Fragment>{id}</Fragment>
 );
 
 

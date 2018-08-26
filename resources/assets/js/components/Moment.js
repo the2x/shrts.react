@@ -1,15 +1,11 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import PropTypes from 'prop-types';
 
 var moment = require('moment');
 
 
 const MomentTimer = ({time}) => (
-    <small>
-        <span>
-            {moment(time).locale('ru').fromNow()}
-        </span>
-    </small>
+    <Fragment>{moment(time).locale('ru').fromNow()}</Fragment>
 );
 
 

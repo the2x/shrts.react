@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 
 const Long = ({long}) => (
-    <small>{ long.substr(0, 20) + '...'}</small>
+    <Fragment>{ long.substr(0, 20) + '...'}</Fragment>
 );
 
 

@@ -18520,7 +18520,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Moment__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__RemoveTask__ = __webpack_require__(174);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Cheater__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Criminal__ = __webpack_require__(175);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Increment__ = __webpack_require__(176);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__CodeRedirect__ = __webpack_require__(177);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__CountNumber__ = __webpack_require__(178);
@@ -18738,7 +18738,7 @@ var Task = function (_React$Component) {
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             "li",
                             null,
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Cheater__["a" /* default */], {
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Criminal__["a" /* default */], {
                                 handleCheater: _this9.handleCheater,
                                 id: result.id })
                         ),
@@ -54544,13 +54544,9 @@ var moment = __webpack_require__(0);
 var MomentTimer = function MomentTimer(_ref) {
     var time = _ref.time;
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'small',
+        __WEBPACK_IMPORTED_MODULE_0_react__["Fragment"],
         null,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'span',
-            null,
-            moment(time).locale('ru').fromNow()
-        )
+        moment(time).locale('ru').fromNow()
     );
 };
 
@@ -55406,17 +55402,26 @@ var RemoveTask = function RemoveTask(_ref) {
     var handleDeleteTask = _ref.handleDeleteTask,
         id = _ref.id;
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'form',
-        { onSubmit: function onSubmit(event) {
-                event.preventDefault();
-                handleDeleteTask(id);
-            } },
+        __WEBPACK_IMPORTED_MODULE_0_react__["Fragment"],
+        null,
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'button',
-            null,
-            'Remove'
+            'form',
+            { onSubmit: function onSubmit(event) {
+                    event.preventDefault();
+                    handleDeleteTask(id);
+                } },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'button',
+                null,
+                'Remove'
+            )
         )
     );
+};
+
+RemoveTask.propTypes = {
+    handleDeleteTask: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+    id: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (RemoveTask);
@@ -55437,15 +55442,19 @@ var Cheater = function Cheater(_ref) {
     var handleCheater = _ref.handleCheater,
         id = _ref.id;
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'form',
-        { onSubmit: function onSubmit(event) {
-                event.preventDefault();
-                handleCheater(id);
-            } },
+        __WEBPACK_IMPORTED_MODULE_0_react__["Fragment"],
+        null,
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'button',
-            null,
-            'I\'m a Cheater'
+            'form',
+            { onSubmit: function onSubmit(event) {
+                    event.preventDefault();
+                    handleCheater(id);
+                } },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'button',
+                null,
+                'Cheater'
+            )
         )
     );
 };
@@ -55472,7 +55481,7 @@ Cheater.propTypes = {
 var Increment = function Increment(_ref) {
     var id = _ref.id;
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'small',
+        __WEBPACK_IMPORTED_MODULE_0_react__["Fragment"],
         null,
         id
     );
@@ -55540,7 +55549,7 @@ var CountNumber = function CountNumber(_ref) {
     var _ref$count = _ref.count,
         count = _ref$count === undefined ? 0 : _ref$count;
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'span',
+        __WEBPACK_IMPORTED_MODULE_0_react__["Fragment"],
         null,
         count
     );
@@ -55610,7 +55619,7 @@ var Profile = function Profile(_ref) {
         user = _ref.user,
         id = _ref.id;
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
+        __WEBPACK_IMPORTED_MODULE_0_react__["Fragment"],
         null,
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'button',
@@ -55672,7 +55681,7 @@ Profile.propTypes = {
 var Long = function Long(_ref) {
   var long = _ref.long;
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    'small',
+    __WEBPACK_IMPORTED_MODULE_0_react__["Fragment"],
     null,
     long.substr(0, 20) + '...'
   );
