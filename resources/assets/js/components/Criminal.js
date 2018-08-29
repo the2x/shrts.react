@@ -10,19 +10,19 @@ const enhance = compose(
             axios.post(window.location.href + 'task/' + props.id, {id: props.id})
                 .then(response => {
                     props.setCheater([...response.data]);
-
-                    console.log(response.data)
-
                 }).catch(error => console.log(error))
-        }
+        },
     }),
+
     lifecycle({
         componentDidMount() {
-            axios.get('/task')
-                .then(response => {
-                    this.setState({task: [...this.props.task]});
-                    console.log(this.props.task)
-                }).catch(error => console.log(error));
+
+        },
+
+        componentWillReceiveProps(nextProps) {
+            if (this.props.task !== nextProps.task) {
+
+            }
         }
     })
 );
@@ -31,7 +31,7 @@ const Cheater = ({handleCheater, id}) => (
     <Fragment>
         <form onSubmit={event => {
             event.preventDefault();
-            handleCheater(id)
+            handleCheater(id);
         }}>
             <button>Cheater</button>
         </form>

@@ -56952,23 +56952,15 @@ var enhance = Object(__WEBPACK_IMPORTED_MODULE_2_recompose__["a" /* compose */])
         return function () {
             axios.post(window.location.href + 'task/' + props.id, { id: props.id }).then(function (response) {
                 props.setCheater([].concat(_toConsumableArray(response.data)));
-
-                console.log(response.data);
             }).catch(function (error) {
                 return console.log(error);
             });
         };
     }
 }), Object(__WEBPACK_IMPORTED_MODULE_2_recompose__["c" /* lifecycle */])({
-    componentDidMount: function componentDidMount() {
-        var _this = this;
-
-        axios.get('/task').then(function (response) {
-            _this.setState({ task: [].concat(_toConsumableArray(_this.props.task)) });
-            console.log(_this.props.task);
-        }).catch(function (error) {
-            return console.log(error);
-        });
+    componentDidMount: function componentDidMount() {},
+    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+        if (this.props.task !== nextProps.task) {}
     }
 }));
 
