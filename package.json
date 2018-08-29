@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "moment": "^2.22.2",
-        "prop-types": "^15.6.2"
+        "prop-types": "^15.6.2",
+        "recompose": "^0.29.0"
     }
 }

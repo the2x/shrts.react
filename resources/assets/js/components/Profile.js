@@ -1,8 +1,43 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
+import {compose, setPropTypes, withHandlers, withState} from 'recompose';
 
+const enhance = compose(
+    setPropTypes({
+        index: PropTypes.number,
+        toggleClass: PropTypes.func,
+        getProfileListInformation: PropTypes.func,
+        active: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+        ]),
+        user: PropTypes.array,
+        id: PropTypes.number,
+    }),
+    withState('active', 'changeActive', ''),
+    withState('user', 'showUser', []),
+    withHandlers({
+        toggleClass: props => () => {
+            if (parseInt(props.active) === props.index) {
+                props.changeActive('');
+            } else {
+                props.changeActive(props.index);
+            }
+        },
+
+        getProfileListInformation: props => () => {
+            axios.get(window.location.href + 'task/info')
+                .then(response => {
+                    props.showUser([response.data]);
+
+                    console.log(props)
+                }).catch(error => console.log(error));
+        }
+    })
+);
 
 const Profile = ({index, toggleClass, getProfileListInformation, active, user, id}) => (
+
     <Fragment>
         <button key={index} onClick={() => {
             toggleClass(index);
@@ -27,17 +62,4 @@ const Profile = ({index, toggleClass, getProfileListInformation, active, user, i
     </Fragment>
 );
 
-
-Profile.propTypes = {
-    index: PropTypes.number,
-    toggleClass: PropTypes.func,
-    getProfileListInformation: PropTypes.func,
-    active: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-    ]),
-    user: PropTypes.array,
-    id: PropTypes.number,
-};
-
-export default Profile;
+export default enhance(Profile);

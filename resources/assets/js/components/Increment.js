@@ -1,14 +1,13 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
+import {compose, setPropTypes} from 'recompose';
 
+const enhance = compose(
+    setPropTypes({id: PropTypes.number}),
+);
 
 const Increment = ({id}) => (
     <Fragment>{id}</Fragment>
 );
 
-
-Increment.propTypes = {
-    id: PropTypes.number,
-};
-
-export default Increment;
+export default enhance(Increment);

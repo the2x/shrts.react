@@ -1,14 +1,15 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 
+import {compose, setPropTypes, defaultProps} from 'recompose';
 
-const CountNumber = ({count = 0}) => (
+const enhance = compose(
+    setPropTypes({ count: PropTypes.number,}),
+    defaultProps({ count: 0})
+);
+
+const CountNumber = ({count}) => (
     <Fragment>{count}</Fragment>
 );
 
-
-CountNumber.propTypes = {
-    count: PropTypes.number,
-};
-
-export default CountNumber;
+export default enhance(CountNumber);

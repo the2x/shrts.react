@@ -1,11 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {compose, setPropTypes, withHandlers, withState} from 'recompose';
 
+const enhance = compose(
+    setPropTypes({handleSubmit: PropTypes.func, createTask: PropTypes.func,}),
+    withState('long', 'createTask', ''),
+    withState('task', 'handleSubmit', []),
 
-const CreateTask = ({handleSubmit, createTask}) => (
+    withHandlers({
+        handleCreateTask: props => event => {
+            props.createTask(event.target.value);
+            console.log('работает 1');
+        },
+
+        handleSubmitTask: props => event => {
+            event.preventDefault();
+
+            axios.post(window.location.href + 'create', {long: props.long})
+                .then(response => {
+                    props.handleSubmit([...task, response.data]);
+                }).catch(error => console.log(error.response));
+
+            console.log('работает');
+        }
+    })
+);
+
+const CreateTask = ({handleSubmitTask, handleCreateTask}) => (
     <div className="create_task">
-        <form onSubmit={handleSubmit}>
-            <input type="text" onChange={createTask} name="long"/>
+        <form onSubmit={handleSubmitTask}>
+            <input type="text" onChange={handleCreateTask} name="long"/>
             <button>Push</button>
         </form>
     </div>
@@ -13,9 +37,4 @@ const CreateTask = ({handleSubmit, createTask}) => (
 );
 
 
-CreateTask.propTypes = {
-  handleSubmit: PropTypes.func,
-  createTask: PropTypes.func,
-};
-
-export default CreateTask;
+export default enhance(CreateTask);
