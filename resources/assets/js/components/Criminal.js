@@ -16,12 +16,12 @@ const enhance = compose(
 
     lifecycle({
         componentDidMount() {
-
+            console.log(1)
         },
 
         componentWillReceiveProps(nextProps) {
             if (this.props.task !== nextProps.task) {
-
+                console.log(2)
             }
         }
     })
